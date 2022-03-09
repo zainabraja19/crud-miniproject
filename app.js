@@ -1,10 +1,12 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const Task = require('./schema');
+require('dotenv').config();
 
 const app = express();
 
-const mongo = "mongodb+srv://zainab:zainab2120@mycluster.h9yhb.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+mongo = process.env.mongoURI
+
 mongoose.connect(mongo)
     .then((data) => {
         console.log("Connected to DB!")
